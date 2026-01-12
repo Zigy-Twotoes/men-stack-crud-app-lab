@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Editor</title>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+    <h1>Character Editor</h1>
+    <form action="/character/character/?_method=PUT" method="POST">
+        <div>
+            <label for="main">Main:</label>
+            <input type="text" name="main" id="main" required />
+            <label for="sp">Skill Points:</label>
+            <input type="text" name="sp" id="sp" pattern="[0-9]*" inputmode="numeric" title="Please enter numbers only" required />
+            <label for="isk">Isk:</label>
+            <input type="text" name="isk" id="isk" pattern="[0-9]*" inputmode="numeric" title="Please enter numbers only" required />
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="text" name="password" id="password" required />
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</body>
+</html>

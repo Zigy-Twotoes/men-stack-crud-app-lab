@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= member.main %> Tracker</title>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+    <h1>Welcome, <%= member.main %></h1>
+    <div>
+        <ul>
+            <li>Skill points: <%= member.sp %></li>
+            <li>Isk: <%= member.isk %></li>
+        </ul>
+        <form action="/character/character/<%= member._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete <%= member.main  %></button>
+        </form>
+    </div>
+</body>
+</html>
