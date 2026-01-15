@@ -16,6 +16,7 @@
         <form action="/character/character/<%= member._id %>?_method=DELETE" method="POST">
             <button type="submit">Delete <%= member.main  %></button>
         </form>
+        <a href="/character/character/<%= member._id %>/edit">Edit this character</a>
     </div>
 </body>
 </html>

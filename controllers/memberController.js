@@ -26,8 +26,9 @@ router.get('/character/new', async (req, res) => {
 
 
 // Update
-router.get('/character/edit/', async (req, res) => {
-    res.render('character/edit.ejs');
+router.get('/character/character/:memberid/edit/', async (req, res) => {
+    const foundMem = await Member.findById(req.params.memberid)
+    res.render('character/edit.ejs', {member: foundMem});
 });
 
 // Create
@@ -37,9 +38,9 @@ router.post('/character', async (req, res) => {
 })
 
 // Edit
-router.put('/character/character', async (req, res) => {
-    const characterId = await Member.findOneAndUpdate(req.params.main, req.body);
-    res.redirect(`/character/character/${characterId.id}`)    
+router.put('/character/character/:memberid', async (req, res) => {
+    const character = await Member.findByIdAndUpdate(req.params.memberid, req.body);        
+    res.redirect(`/character/character/${character.id}`)    
 })
 
 // Show
